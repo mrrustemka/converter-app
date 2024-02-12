@@ -6,8 +6,10 @@ import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
 
 const defaultState = {
-  input: 0,
+  input: 1,
   result: 0,
+  from: "USD",
+  to: "EUR",
 };
 
 const reducer = (state = defaultState, action) => {
@@ -16,6 +18,10 @@ const reducer = (state = defaultState, action) => {
       return { ...state, input: action.payload };
     case "update-result":
       return { ...state, result: action.payload };
+    case "update-from":
+      return { ...state, from: action.payload };
+    case "update-to":
+      return { ...state, to: action.payload };
     default:
       return state;
   }

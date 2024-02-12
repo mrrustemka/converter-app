@@ -11,6 +11,10 @@ import { useSelector, useDispatch } from "react-redux";
 function App() {
   const value = useSelector((state) => state.input);
   const result = useSelector((state) => state.result);
+  const curFrom = useSelector((state) => state.from);
+  const curTo = useSelector((state) => state.to);
+  console.log(curFrom, curTo);
+
   const dispatch = useDispatch();
   useEffect(
     function () {
@@ -18,23 +22,23 @@ function App() {
         fetch(
           `https://api.frankfurter.app/latest?amount=${parseFloat(
             value
-          )}&from=USD&to=EUR`
+          )}&from=${curFrom}&to=${curTo}`
         )
           .then((resp) => resp.json())
           .then((data) => {
-            dispatch({ type: "update-result", payload: data.rates?.EUR });
+            dispatch({ type: "update-result", payload: data.rates[curTo] });
           });
       }
       fetchCurrency();
     },
-    [value]
+    [dispatch, value]
   );
   return (
     <div className="App">
       <Header />
       <Input />
-      <Currency />
-      <Currency />
+      <Currency type="update-from" />
+      <Currency type="update-to" />
       <Output value={result} />
       <Keyboard />
       <ChartButton />
