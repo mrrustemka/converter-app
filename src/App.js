@@ -6,10 +6,12 @@ import Header from "./components/Header";
 import Input from "./components/Input";
 import Keyboard from "./components/Keyboard";
 import Output from "./components/Output";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 function App() {
-  const value = useSelector((state) => state.value);
+  const value = useSelector((state) => state.input);
+  const result = useSelector((state) => state.result);
+  const dispatch = useDispatch();
   useEffect(
     function () {
       async function fetchCurrency() {
@@ -20,7 +22,7 @@ function App() {
         )
           .then((resp) => resp.json())
           .then((data) => {
-            console.log(data.rates);
+            dispatch({ type: "update-result", payload: data.rates?.EUR });
           });
       }
       fetchCurrency();
@@ -33,7 +35,7 @@ function App() {
       <Input />
       <Currency />
       <Currency />
-      <Output />
+      <Output value={result} />
       <Keyboard />
       <ChartButton />
       <Chart />

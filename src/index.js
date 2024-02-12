@@ -6,13 +6,16 @@ import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
 
 const defaultState = {
-  value: 0,
+  input: 0,
+  result: 0,
 };
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "update-value":
-      return { ...state, value: action.payload };
+    case "update-input":
+      return { ...state, input: action.payload };
+    case "update-result":
+      return { ...state, result: action.payload };
     default:
       return state;
   }

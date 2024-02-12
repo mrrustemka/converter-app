@@ -8,7 +8,7 @@ function Input() {
     <div>
       <input
         onChange={(e) =>
-          dispatch({ type: "update-value", payload: e.target.value })
+          dispatch({ type: "update-input", payload: e.target.value })
         }
       />
     </div>

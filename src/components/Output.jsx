@@ -1,9 +1,9 @@
 import React from "react";
 
-function Output() {
+function Output({ value }) {
   return (
     <div>
-      <input readOnly />
+      <input readOnly value={value} />
     </div>
   );
 }
