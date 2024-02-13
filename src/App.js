@@ -9,10 +9,12 @@ import Output from "./components/Output";
 import { useSelector, useDispatch } from "react-redux";
 
 function App() {
-  const value = useSelector((state) => state.input);
-  const result = useSelector((state) => state.result);
-  const curFrom = useSelector((state) => state.from);
-  const curTo = useSelector((state) => state.to);
+  const {
+    input: value,
+    result,
+    from: curFrom,
+    to: curTo,
+  } = useSelector((state) => state);
   console.log(curFrom, curTo);
 
   const dispatch = useDispatch();
@@ -31,7 +33,7 @@ function App() {
       }
       fetchCurrency();
     },
-    [dispatch, value]
+    [curFrom, curTo, dispatch, value]
   );
   return (
     <div className="App">
