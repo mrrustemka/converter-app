@@ -1,11 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-function Currency({type}) {
+function Currency({ type }) {
   const dispatch = useDispatch();
   return (
     <div>
-      <select onChange={(e) => dispatch({ type: type, payload: e.target.value })}>
+      <select
+        onChange={(e) => dispatch({ type: type, payload: e.target.value })}
+      >
         <option value="USD">USD</option>
         <option value="EUR">EUR</option>
         <option value="JPY">JPY</option>
@@ -21,7 +23,6 @@ function Currency({type}) {
         <option value="NOK">NOK</option>
         <option value="NZD">NZD</option>
         <option value="INR">INR</option>
-        <option value="GEL">GEL</option>
       </select>
     </div>
   );

@@ -31,7 +31,9 @@ function App() {
             dispatch({ type: "update-result", payload: data.rates[curTo] });
           });
       }
-      fetchCurrency();
+      if (curFrom !== curTo) {
+        fetchCurrency();
+      }
     },
     [curFrom, curTo, dispatch, value]
   );
@@ -48,7 +50,11 @@ function App() {
           .then((data) => {
             // setHist(data.rates);
             // setIsLoading(false);
-            console.log(data.rates);
+            dispatch({
+              type: "update-hist-data",
+              payload: data.rates,
+            });
+            // console.log(data.rates);
           });
       }
 
@@ -57,9 +63,11 @@ function App() {
       // } else {
       //   setHist([{ "": { "": 0 } }]);
       // }
-      fetchHistCurrency();
+      if (curFrom !== curTo) {
+        fetchHistCurrency();
+      }
     },
-    [curFrom, curTo, histDate, value]
+    [curFrom, curTo, dispatch, histDate, value]
   );
   return (
     <div className="App">

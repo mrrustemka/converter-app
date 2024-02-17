@@ -19,6 +19,7 @@ const defaultState = {
   from: "USD",
   to: "EUR",
   histDate: getDate(),
+  histData: [0],
 };
 
 const reducer = (state = defaultState, action) => {
@@ -33,6 +34,8 @@ const reducer = (state = defaultState, action) => {
       return { ...state, to: action.payload };
     case "update-hist-date":
       return { ...state, histDate: action.payload };
+    case "update-hist-data":
+      return { ...state, histData: action.payload };
     default:
       return state;
   }
