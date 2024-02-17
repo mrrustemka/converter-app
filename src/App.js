@@ -15,7 +15,6 @@ function App() {
     from: curFrom,
     to: curTo,
   } = useSelector((state) => state);
-  console.log(curFrom, curTo);
 
   const dispatch = useDispatch();
   useEffect(
@@ -34,6 +33,32 @@ function App() {
       fetchCurrency();
     },
     [curFrom, curTo, dispatch, value]
+  );
+
+  useEffect(
+    function () {
+      async function fetchHistCurrency() {
+        fetch(
+          `https://api.frankfurter.app/2024-01-01..?amount=${parseFloat(
+            value
+          )}&from=${curFrom}&to=${curTo}`
+        )
+          .then((resp) => resp.json())
+          .then((data) => {
+            // setHist(data.rates);
+            // setIsLoading(false);
+            console.log(data);
+          });
+      }
+
+      // if (curFrom !== curTo) {
+      //   fetchHistCurrency();
+      // } else {
+      //   setHist([{ "": { "": 0 } }]);
+      // }
+      fetchHistCurrency();
+    },
+    [curFrom, curTo, value]
   );
   return (
     <div className="App">
