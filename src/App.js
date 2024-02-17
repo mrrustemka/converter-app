@@ -14,6 +14,7 @@ function App() {
     result,
     from: curFrom,
     to: curTo,
+    histDate,
   } = useSelector((state) => state);
 
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ function App() {
     function () {
       async function fetchHistCurrency() {
         fetch(
-          `https://api.frankfurter.app/2024-01-01..?amount=${parseFloat(
+          `https://api.frankfurter.app/${histDate}..?amount=${parseFloat(
             value
           )}&from=${curFrom}&to=${curTo}`
         )
@@ -47,7 +48,7 @@ function App() {
           .then((data) => {
             // setHist(data.rates);
             // setIsLoading(false);
-            console.log(data);
+            console.log(data.rates);
           });
       }
 
@@ -58,7 +59,7 @@ function App() {
       // }
       fetchHistCurrency();
     },
-    [curFrom, curTo, value]
+    [curFrom, curTo, histDate, value]
   );
   return (
     <div className="App">
@@ -68,7 +69,62 @@ function App() {
       <Currency type="update-to" />
       <Output value={result} />
       <Keyboard />
-      <ChartButton />
+      <ChartButton
+        key="5days"
+        text="5 Days"
+        period={new Intl.DateTimeFormat("ru-RU")
+          .format(new Date(new Date().getTime() - 432e6))
+          .split(".")}
+      />
+      <ChartButton
+        key="10days"
+        text="10 Days"
+        period={new Intl.DateTimeFormat("ru-RU")
+          .format(new Date(new Date().getTime() - 864e6))
+          .split(".")}
+      />
+      <ChartButton
+        key="1month"
+        text="1 Month"
+        period={new Intl.DateTimeFormat("ru-RU")
+          .format(new Date(new Date().getTime() - 2592e6))
+          .split(".")}
+      />
+      <ChartButton
+        key="3months"
+        text="3 Months"
+        period={new Intl.DateTimeFormat("ru-RU")
+          .format(new Date(new Date().getTime() - 7776e6))
+          .split(".")}
+      />
+      <ChartButton
+        key="6months"
+        text="6 Months"
+        period={new Intl.DateTimeFormat("ru-RU")
+          .format(new Date(new Date().getTime() - 158112e5))
+          .split(".")}
+      />
+      <ChartButton
+        key="1year"
+        text="1 Year"
+        period={new Intl.DateTimeFormat("ru-RU")
+          .format(new Date(new Date().getTime() - 31536e6))
+          .split(".")}
+      />
+      <ChartButton
+        key="3years"
+        text="3 Years"
+        period={new Intl.DateTimeFormat("ru-RU")
+          .format(new Date(new Date().getTime() - 94608e6))
+          .split(".")}
+      />
+      <ChartButton
+        key="5years"
+        text="5 Years"
+        period={new Intl.DateTimeFormat("ru-RU")
+          .format(new Date(new Date().getTime() - 15768e7))
+          .split(".")}
+      />
       <Chart />
     </div>
   );

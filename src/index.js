@@ -5,11 +5,20 @@ import App from "./App";
 import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
 
+function getDate() {
+  let date = new Intl.DateTimeFormat("ru-RU")
+    .format(new Date(new Date().getTime() - 2592000000))
+    .split(".");
+  date.push(date[1], date[0]);
+  return date.slice(2).join("-");
+}
+
 const defaultState = {
   input: 1,
   result: 0,
   from: "USD",
   to: "EUR",
+  histDate: getDate(),
 };
 
 const reducer = (state = defaultState, action) => {
@@ -22,6 +31,8 @@ const reducer = (state = defaultState, action) => {
       return { ...state, from: action.payload };
     case "update-to":
       return { ...state, to: action.payload };
+    case "update-hist-date":
+      return { ...state, histDate: action.payload };
     default:
       return state;
   }
