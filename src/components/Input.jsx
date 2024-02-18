@@ -12,6 +12,7 @@ function Input() {
         }
         value={input}
         defaultValue={1}
+        placeholder="Enter Amount"
       />
     </div>
   );
