@@ -11,6 +11,7 @@ function Input() {
           dispatch({ type: "update-input", payload: e.target.value })
         }
         value={input}
+        defaultValue={1}
       />
     </div>
   );

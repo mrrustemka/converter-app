@@ -11,7 +11,6 @@ import { useSelector, useDispatch } from "react-redux";
 function App() {
   const {
     input: value,
-    result,
     from: curFrom,
     to: curTo,
     histDate,
@@ -31,9 +30,10 @@ function App() {
             dispatch({ type: "update-result", payload: data.rates[curTo] });
           });
       }
-      if (curFrom !== curTo && value.length > 0) {
+      if (curFrom !== curTo && value > 0 && value !== 0) {
         fetchCurrency();
       }
+      console.log(value > 0);
     },
     [curFrom, curTo, dispatch, value]
   );
@@ -62,7 +62,7 @@ function App() {
       // } else {
       //   setHist([{ "": { "": 0 } }]);
       // }
-      if (curFrom !== curTo && value.length > 0) {
+      if (curFrom !== curTo && value > 0 && value !== 0) {
         fetchHistCurrency();
       }
     },
