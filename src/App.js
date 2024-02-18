@@ -31,7 +31,7 @@ function App() {
             dispatch({ type: "update-result", payload: data.rates[curTo] });
           });
       }
-      if (curFrom !== curTo) {
+      if (curFrom !== curTo && value.length > 0) {
         fetchCurrency();
       }
     },
@@ -54,7 +54,6 @@ function App() {
               type: "update-hist-data",
               payload: data.rates,
             });
-            // console.log(data.rates);
           });
       }
 
@@ -63,7 +62,7 @@ function App() {
       // } else {
       //   setHist([{ "": { "": 0 } }]);
       // }
-      if (curFrom !== curTo) {
+      if (curFrom !== curTo && value.length > 0) {
         fetchHistCurrency();
       }
     },
