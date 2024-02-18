@@ -1,15 +1,16 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function Input() {
   const dispatch = useDispatch();
-  // const value = useSelector((state) => state.value);
+  const { input } = useSelector((state) => state);
   return (
     <div>
       <input
         onChange={(e) =>
           dispatch({ type: "update-input", payload: e.target.value })
         }
+        value={input}
       />
     </div>
   );
