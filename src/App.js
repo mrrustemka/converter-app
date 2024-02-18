@@ -73,8 +73,8 @@ function App() {
     <div className="App">
       <Header />
       <Input />
-      <Currency type="update-from" />
-      <Currency type="update-to" />
+      <Currency type="update-from" defaultValue="USD" />
+      <Currency type="update-to" defaultValue="EUR" />
       <Output value={result} />
       <Keyboard />
       <ChartButton
