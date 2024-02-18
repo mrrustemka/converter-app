@@ -74,7 +74,7 @@ function App() {
       <Input />
       <Currency type="update-from" defaultValue="USD" />
       <Currency type="update-to" defaultValue="EUR" />
-      <Output value={result} />
+      <Output />
       <Keyboard />
       <ChartButton
         key="5days"

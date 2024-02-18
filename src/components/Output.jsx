@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-function Output({ value }) {
+function Output() {
+  const { result } = useSelector((state) => state);
   return (
     <div>
-      <input readOnly value={value} />
+      <input readOnly value={result.toFixed(2)} />
     </div>
   );
 }
