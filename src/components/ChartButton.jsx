@@ -1,20 +1,33 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import Button from "@mui/material/Button";
+import { Box } from "@mui/system";
 
-function ChartButton({ text, period }) {
+function ChartButton({ text, period, gridStyle }) {
   const dispatch = useDispatch();
   period.push(period[1], period[0]);
   period = period.slice(2).join("-");
   return (
-    <div className="d-inline m-2">
-      <button
+    <Box sx={{ mx: "auto" }}>
+      <Button
         type="button"
         className="btn btn-dark"
+        size="medium"
+        variant="contained"
         onClick={() => dispatch({ type: "update-hist-date", payload: period })}
+        sx={{
+          gridArea: gridStyle,
+          mx: "auto",
+          bgcolor: "black",
+          "&:hover, &.Mui-focusVisible": {
+            bgcolor: `black`,
+            opacity: ".9",
+          },
+        }}
       >
         {text}
-      </button>
-    </div>
+      </Button>
+    </Box>
   );
 }
 

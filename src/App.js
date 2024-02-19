@@ -108,15 +108,17 @@ function App() {
           p: 2,
           borderRadius: "12px",
           display: "grid",
-          gridTemplateColumns: "repeat(6, 1fr)",
-          gridTemplateRows: "repeat(2, 1fr)",
-          // gridTemplateAreas: `"converter chart chart chart"`,
-          gap: 2,
+          gridTemplateColumns: "repeat(8, 1fr)",
+          gridTemplateRows: "repeat(2, 1fr, 4fr)",
+          gridTemplateAreas: `"chartButton_1 chartButton_2 chartButton_3 chartButton_4 chartButton_5 chartButton_6 chartButton_7 chartButton_8"
+          "chart chart chart chart chart chart chart chart"`,
+          gap: 1,
         }}
       >
         <ChartButton
           key="5days"
           text="5 Days"
+          gridStyle="button_1"
           period={new Intl.DateTimeFormat("ru-RU")
             .format(new Date(new Date().getTime() - 432e6))
             .split(".")}
@@ -124,6 +126,7 @@ function App() {
         <ChartButton
           key="10days"
           text="10 Days"
+          gridStyle="button_2"
           period={new Intl.DateTimeFormat("ru-RU")
             .format(new Date(new Date().getTime() - 864e6))
             .split(".")}
@@ -131,6 +134,7 @@ function App() {
         <ChartButton
           key="1month"
           text="1 Month"
+          gridStyle="button_3"
           period={new Intl.DateTimeFormat("ru-RU")
             .format(new Date(new Date().getTime() - 2592e6))
             .split(".")}
@@ -138,6 +142,7 @@ function App() {
         <ChartButton
           key="3months"
           text="3 Months"
+          gridStyle="button_4"
           period={new Intl.DateTimeFormat("ru-RU")
             .format(new Date(new Date().getTime() - 7776e6))
             .split(".")}
@@ -145,6 +150,7 @@ function App() {
         <ChartButton
           key="6months"
           text="6 Months"
+          gridStyle="button_5"
           period={new Intl.DateTimeFormat("ru-RU")
             .format(new Date(new Date().getTime() - 158112e5))
             .split(".")}
@@ -152,6 +158,7 @@ function App() {
         <ChartButton
           key="1year"
           text="1 Year"
+          gridStyle="button_6"
           period={new Intl.DateTimeFormat("ru-RU")
             .format(new Date(new Date().getTime() - 31536e6))
             .split(".")}
@@ -159,6 +166,7 @@ function App() {
         <ChartButton
           key="3years"
           text="3 Years"
+          gridStyle="button_7"
           period={new Intl.DateTimeFormat("ru-RU")
             .format(new Date(new Date().getTime() - 94608e6))
             .split(".")}
@@ -166,10 +174,12 @@ function App() {
         <ChartButton
           key="5years"
           text="5 Years"
+          gridStyle="button_8"
           period={new Intl.DateTimeFormat("ru-RU")
             .format(new Date(new Date().getTime() - 15768e7))
             .split(".")}
         />
+
         <Chart />
       </Box>
     </Grid>
