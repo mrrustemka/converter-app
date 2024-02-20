@@ -2,7 +2,3 @@ body {
   background-color: black;
   /* color:silver */
 }
-
-svg > g > g > path {
-  fill: #ffffff !important;
-}

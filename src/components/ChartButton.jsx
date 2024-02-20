@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import Button from "@mui/material/Button";
 import { Box } from "@mui/system";
+import HourglassFullSharpIcon from "@mui/icons-material/HourglassFullSharp";
 
 function ChartButton({ text, period, gridStyle }) {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function ChartButton({ text, period, gridStyle }) {
             opacity: ".9",
           },
         }}
+        startIcon={<HourglassFullSharpIcon />}
       >
         {text}
       </Button>
