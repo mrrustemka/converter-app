@@ -91,6 +91,7 @@ function App() {
           color: "background.paper",
           p: 2,
           borderRadius: "12px",
+          textAlign: "center",
         }}
       >
         <Header />

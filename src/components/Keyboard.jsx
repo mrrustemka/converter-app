@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ButtonGroup, Button, Box } from "@mui/material";
 
 function Keyboard() {
   const dispatch = useDispatch();
@@ -10,121 +11,269 @@ function Keyboard() {
     }
   }
   return (
-    <div>
-      <div className="" role="group">
-        <button
+    <Box sx={{ p: 2 }}>
+      <ButtonGroup
+        variant="contained"
+        aria-label="Basic button group"
+        sx={{ display: "block", width: "fit-content", margin: "auto" }}
+      >
+        <Button
           type="button"
-          className=""
+          variant="contained"
           onClick={() =>
             dispatch({ type: "update-input", payload: input + "1" })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            borderBottomLeftRadius: 0,
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           1
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
-          className=""
+          variant="contained"
           onClick={() =>
             dispatch({ type: "update-input", payload: input + "2" })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           2
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
-          className=""
+          variant="contained"
           onClick={() =>
             dispatch({ type: "update-input", payload: input + "3" })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            borderBottomRightRadius: 0,
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           3
-        </button>
-      </div>
-      <div className="" role="group">
-        <button
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup
+        variant="contained"
+        aria-label="Basic button group"
+        sx={{ display: "block", width: "fit-content", margin: "auto" }}
+      >
+        <Button
           type="button"
-          className=""
+          variant="contained"
           onClick={() =>
             dispatch({ type: "update-input", payload: input + "4" })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            borderRadius: 0,
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           4
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
-          className=""
+          variant="contained"
           onClick={() =>
             dispatch({ type: "update-input", payload: input + "5" })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           5
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
-          className=""
+          variant="contained"
           onClick={() =>
             dispatch({ type: "update-input", payload: input + "6" })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            borderRadius: 0,
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           6
-        </button>
-      </div>
-      <div className="" role="group">
-        <button
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup
+        variant="contained"
+        aria-label="Basic button group"
+        sx={{ display: "block", width: "fit-content", margin: "auto" }}
+      >
+        <Button
           type="button"
-          className=""
+          variant="contained"
           onClick={() =>
             dispatch({ type: "update-input", payload: input + "7" })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            borderRadius: 0,
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           7
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
-          className=""
+          variant="contained"
           onClick={() =>
             dispatch({ type: "update-input", payload: input + "8" })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           8
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
-          className=""
+          variant="contained"
           onClick={() =>
             dispatch({ type: "update-input", payload: input + "9" })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            borderRadius: 0,
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           9
-        </button>
-      </div>
-      <div className="" role="group">
-        <button type="button" className="" onClick={() => addDot(input)}>
-          .
-        </button>
-        <button
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup
+        variant="contained"
+        aria-label="Basic button group"
+        sx={{ display: "block", width: "fit-content", margin: "auto" }}
+      >
+        <Button
           type="button"
-          className=""
+          variant="contained"
+          onClick={() => addDot(input)}
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            borderTopLeftRadius: 0,
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
+        >
+          .
+        </Button>
+        <Button
+          type="button"
+          variant="contained"
           onClick={() =>
             dispatch({ type: "update-input", payload: input + "0" })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           0
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
-          className=""
+          variant="contained"
           onClick={() =>
             dispatch({
               type: "update-input",
               payload: input.slice(0, input.length - 1),
             })
           }
+          sx={{
+            bgcolor: "black",
+            borderRight: "none !important",
+            width: "40px",
+            height: "40px",
+            borderTopRightRadius: 0,
+            "&:hover, &.Mui-focusVisible": {
+              bgcolor: `black`,
+              opacity: ".9",
+            },
+          }}
         >
           &#9249;
-        </button>
-      </div>
-    </div>
+        </Button>
+      </ButtonGroup>
+    </Box>
   );
 }
 

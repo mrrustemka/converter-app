@@ -12,7 +12,6 @@ function ChartButton({ text, period, gridStyle }) {
     <Box sx={{ mx: "auto" }}>
       <Button
         type="button"
-        className="btn btn-dark"
         size="medium"
         variant="contained"
         onClick={() => dispatch({ type: "update-hist-date", payload: period })}
