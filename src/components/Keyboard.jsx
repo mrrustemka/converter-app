@@ -11,7 +11,7 @@ function Keyboard() {
     }
   }
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: 2, gridArea: "keyboard" }}>
       <ButtonGroup
         variant="contained"
         aria-label="Basic button group"

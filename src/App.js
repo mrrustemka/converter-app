@@ -3,7 +3,7 @@ import Chart from "./components/Chart";
 import ChartButton from "./components/ChartButton";
 import Currency from "./components/Currency";
 import Header from "./components/Header";
-import Input from "./components/Input";
+import Input from "./components/Enter";
 import Keyboard from "./components/Keyboard";
 import Output from "./components/Output";
 import { useSelector, useDispatch } from "react-redux";
@@ -84,8 +84,16 @@ function App() {
         p: 4,
       }}
     >
-      <Box
+      <Grid
         sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(2fr 1fr)",
+          gridTemplateRows: "repeat(auto auto auto auto)",
+          gridTemplateAreas: `"header header"
+          "input currencyFrom"
+          "output currencyTo"
+          "keyboard keyboard"`,
+          gap: 1,
           gridArea: "converter",
           bgcolor: "silver",
           color: "background.paper",
@@ -96,11 +104,15 @@ function App() {
       >
         <Header />
         <Input />
-        <Currency type="update-from" defaultValue="USD" />
-        <Currency type="update-to" defaultValue="EUR" />
+        <Currency
+          type="update-from"
+          defaultValue="USD"
+          gridArea="currencyFrom"
+        />
         <Output />
+        <Currency type="update-to" defaultValue="EUR" gridArea="currencyTo" />
         <Keyboard />
-      </Box>
+      </Grid>
       <Box
         sx={{
           gridArea: "chart",
