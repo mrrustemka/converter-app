@@ -35,7 +35,6 @@ function App() {
       if (curFrom !== curTo && value > 0 && value !== 0) {
         fetchCurrency();
       }
-      console.log(value > 0);
     },
     [curFrom, curTo, dispatch, value]
   );

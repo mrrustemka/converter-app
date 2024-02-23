@@ -7,7 +7,6 @@ function Chart() {
   const { to: curTo, histData: data } = useSelector((state) => state);
   const series = Object.values(data).map((el) => el[curTo]);
   const labels = Object.keys(data);
-  console.log(series);
   return (
     <Box sx={{ gridArea: "chart", mx: "auto" }}>
       <LineChart
