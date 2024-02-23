@@ -88,7 +88,7 @@ function App() {
         sx={{
           display: "grid",
           gridTemplateColumns: "repeat(2fr 1fr)",
-          gridTemplateRows: "repeat(auto auto auto auto)",
+          gridTemplateRows: "auto auto auto 1fr",
           gridTemplateAreas: `"header header"
           "input currencyFrom"
           "output currencyTo"
@@ -121,10 +121,11 @@ function App() {
           p: 2,
           borderRadius: "12px",
           display: "grid",
-          gridTemplateColumns: "repeat(8, auto)",
-          gridTemplateRows: "repeat(2, 1fr, 4fr)",
-          gridTemplateAreas: `"chartButton_1 chartButton_2 chartButton_3 chartButton_4 chartButton_5 chartButton_6 chartButton_7 chartButton_8"
-          "chart chart chart chart chart chart chart chart"`,
+          gridTemplateColumns: "repeat(4, auto)",
+          gridTemplateRows: "auto auto 1fr",
+          gridTemplateAreas: `"chartButton_1 chartButton_2 chartButton_3 chartButton_4" 
+          "chartButton_5 chartButton_6 chartButton_7 chartButton_8"
+          "chart chart chart chart"`,
           gap: 1,
         }}
       >

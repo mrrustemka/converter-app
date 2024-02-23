@@ -11,8 +11,8 @@ function Chart() {
   return (
     <Box sx={{ gridArea: "chart", mx: "auto" }}>
       <LineChart
-        width={1000}
-        height={600}
+        width={800}
+        height={480}
         series={[
           {
             data: series,
@@ -27,6 +27,8 @@ function Chart() {
         ]}
         xAxis={[{ scaleType: "point", data: labels }]}
         sx={{
+          minWidth: 300,
+          minHeight: 180,
           ".MuiLineElement-root": {
             display: "block",
           },

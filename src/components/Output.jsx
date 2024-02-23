@@ -6,7 +6,7 @@ import { Box } from "@mui/system";
 function Output() {
   const { result } = useSelector((state) => state);
   return (
-    <Box sx={{ display: "inline", gridArea: "output" }}>
+    <Box sx={{ display: "inline", gridArea: "output", paddingTop: 2 }}>
       <TextField
         label="Output"
         InputProps={{
@@ -16,7 +16,10 @@ function Output() {
         readOnly
         sx={{
           ".Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "black",
+            borderColor: "black !important",
+          },
+          ".Mui-focused": {
+            color: "black !important",
           },
         }}
         size="small"

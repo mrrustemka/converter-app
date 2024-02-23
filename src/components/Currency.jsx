@@ -6,12 +6,26 @@ import { Box } from "@mui/system";
 function Currency({ type, defaultValue, gridArea }) {
   const dispatch = useDispatch();
   return (
-    <Box sx={{ display: "inline", gridArea: gridArea }}>
+    <Box
+      sx={{
+        display: "inline",
+        gridArea: gridArea,
+        paddingTop: 2,
+        ".Mui-focused.MuiOutlinedInput-notchedOutline": {
+          borderColor: "black !important",
+        },
+      }}
+    >
       <Select
         onChange={(e) => dispatch({ type: type, payload: e.target.value })}
         defaultValue={defaultValue}
         label="Currency"
         size="small"
+        sx={{
+          "fieldset": {
+            borderColor: "black !important",
+          },
+        }}
       >
         <MenuItem value="USD">$ USD</MenuItem>
         <MenuItem value="EUR">€ EUR</MenuItem>

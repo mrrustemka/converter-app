@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonGroup, Button, Box } from "@mui/material";
+import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
 
 function Keyboard() {
   const dispatch = useDispatch();
@@ -26,8 +27,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             borderBottomLeftRadius: 0,
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
@@ -46,8 +47,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
               opacity: ".9",
@@ -65,8 +66,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             borderBottomRightRadius: 0,
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
@@ -91,8 +92,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             borderRadius: 0,
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
@@ -111,8 +112,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
               opacity: ".9",
@@ -130,8 +131,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             borderRadius: 0,
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
@@ -156,8 +157,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             borderRadius: 0,
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
@@ -176,8 +177,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
               opacity: ".9",
@@ -195,8 +196,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             borderRadius: 0,
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
@@ -219,8 +220,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             borderTopLeftRadius: 0,
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
@@ -239,8 +240,8 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
               opacity: ".9",
@@ -261,17 +262,16 @@ function Keyboard() {
           sx={{
             bgcolor: "black",
             borderRight: "none !important",
-            width: "40px",
-            height: "40px",
+            width: "80px",
+            height: "80px",
             borderTopRightRadius: 0,
             "&:hover, &.Mui-focusVisible": {
               bgcolor: `black`,
               opacity: ".9",
             },
           }}
-        >
-          &#9249;
-        </Button>
+          startIcon={<BackspaceOutlinedIcon />}
+        />
       </ButtonGroup>
     </Box>
   );

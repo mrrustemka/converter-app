@@ -8,11 +8,14 @@ function Header() {
     <Box
       sx={{
         gridArea: "header",
+        bgcolor: "black",
+        color: "white",
+        borderRadius: "12px",
       }}
     >
       <h1>Converter App</h1>
       <h5>
-        1 {from} equals {(result / input).toFixed(2)} {to}
+        1 {from} = {(result / input).toFixed(2)} {to}
       </h5>
     </Box>
   );

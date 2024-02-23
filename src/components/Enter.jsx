@@ -7,7 +7,7 @@ function Enter() {
   const dispatch = useDispatch();
   const { input } = useSelector((state) => state);
   return (
-    <Box sx={{ display: "inline", gridArea: "input" }}>
+    <Box sx={{ display: "inline", gridArea: "input", paddingTop: 2 }}>
       <TextField
         label="Input"
         variant="outlined"
@@ -19,12 +19,11 @@ function Enter() {
         placeholder="Enter Amount"
         sx={{
           ".Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "black",
+            borderColor: "black !important",
           },
-          ".MuiFormControl-root .MuiTextField-root .MuiFormControl-root-MuiTextField-root .MuiFormLabel-root-MuiInputLabel-root.Mui-focused":
-            {
-              color: "black !important",
-            },
+          ".Mui-focused": {
+            color: "black !important",
+          },
         }}
         size="small"
       />

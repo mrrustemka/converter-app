@@ -23,6 +23,7 @@ function ChartButton({ text, period, gridStyle }) {
             bgcolor: `black`,
             opacity: ".9",
           },
+          minWidth: "132px",
         }}
         startIcon={<HourglassFullSharpIcon />}
       >
