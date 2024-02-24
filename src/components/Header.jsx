@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 function Header() {
   const { input, result, from, to } = useSelector((state) => state);
+  console.log(result / input);
   return (
     <Box
       sx={{
@@ -15,7 +16,9 @@ function Header() {
     >
       <h1>Converter App</h1>
       <h5>
-        1 {from} = {(result / input).toFixed(2)} {to}
+        {isNaN(result / input) || result / input === undefined
+          ? "Enter Correct Amount"
+          : `1 ${from} = ${(result / input).toFixed(2)} ${to}`}
       </h5>
     </Box>
   );
