@@ -1,35 +1,28 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import Button from "@mui/material/Button";
-import { Box } from "@mui/system";
 import HourglassFullSharpIcon from "@mui/icons-material/HourglassFullSharp";
+import { ToggleButton } from "@mui/material";
 
-function ChartButton({ text, period, gridStyle }) {
-  const dispatch = useDispatch();
+function ChartButton({ text, period }) {
   period.push(period[1], period[0]);
   period = period.slice(2).join("-");
   return (
-    <Box sx={{ mx: "auto" }}>
-      <Button
-        type="button"
-        size="medium"
-        variant="contained"
-        onClick={() => dispatch({ type: "update-hist-date", payload: period })}
-        sx={{
-          gridArea: gridStyle,
-          mx: "auto",
+    <ToggleButton
+      value={period}
+      aria-label={text}
+      sx={{
+        mx: "auto",
+        color: "white",
+        bgcolor: "black",
+        minWidth: "132px",
+        ":hover": {
           bgcolor: "black",
-          "&:hover, &.Mui-focusVisible": {
-            bgcolor: `black`,
-            opacity: ".9",
-          },
-          minWidth: "132px",
-        }}
-        startIcon={<HourglassFullSharpIcon />}
-      >
-        {text}
-      </Button>
-    </Box>
+          opacity: "0.9",
+        },
+        justifyContent: "start",
+      }}
+    >
+      <HourglassFullSharpIcon /> {text}
+    </ToggleButton>
   );
 }
 

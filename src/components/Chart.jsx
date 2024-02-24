@@ -8,7 +8,7 @@ function Chart() {
   const series = Object.values(data).map((el) => el[curTo]);
   const labels = Object.keys(data);
   return (
-    <Box sx={{ gridArea: "chart", mx: "auto" }}>
+    <Box sx={{ mx: "auto" }}>
       <LineChart
         width={800}
         height={480}

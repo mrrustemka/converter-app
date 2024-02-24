@@ -9,6 +9,7 @@ import Output from "./components/Output";
 import { useSelector, useDispatch } from "react-redux";
 import Box from "@mui/material/Box";
 import Grid from "@mui/system/Unstable_Grid/Grid";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 function App() {
   const {
@@ -69,6 +70,10 @@ function App() {
     },
     [curFrom, curTo, dispatch, histDate, value]
   );
+
+  const handleAlignment = (event, newAlignment) => {
+    dispatch({ type: "update-hist-date", payload: newAlignment });
+  };
   return (
     <Grid
       container
@@ -120,79 +125,87 @@ function App() {
           p: 2,
           borderRadius: "12px",
           display: "grid",
-          gridTemplateColumns: "repeat(4, auto)",
-          gridTemplateRows: "auto auto 1fr",
-          gridTemplateAreas: `"chartButton_1 chartButton_2 chartButton_3 chartButton_4" 
-          "chartButton_5 chartButton_6 chartButton_7 chartButton_8"
-          "chart chart chart chart"`,
+          gridTemplateColumns: "auto 1fr",
+          gridTemplateRows: "1fr",
           gap: 1,
         }}
       >
-        <ChartButton
-          key="5days"
-          text="5 Days"
-          gridStyle="button_1"
-          period={new Intl.DateTimeFormat("ru-RU")
-            .format(new Date(new Date().getTime() - 432e6))
-            .split(".")}
-        />
-        <ChartButton
-          key="10days"
-          text="10 Days"
-          gridStyle="button_2"
-          period={new Intl.DateTimeFormat("ru-RU")
-            .format(new Date(new Date().getTime() - 864e6))
-            .split(".")}
-        />
-        <ChartButton
-          key="1month"
-          text="1 Month"
-          gridStyle="button_3"
-          period={new Intl.DateTimeFormat("ru-RU")
-            .format(new Date(new Date().getTime() - 2592e6))
-            .split(".")}
-        />
-        <ChartButton
-          key="3months"
-          text="3 Months"
-          gridStyle="button_4"
-          period={new Intl.DateTimeFormat("ru-RU")
-            .format(new Date(new Date().getTime() - 7776e6))
-            .split(".")}
-        />
-        <ChartButton
-          key="6months"
-          text="6 Months"
-          gridStyle="button_5"
-          period={new Intl.DateTimeFormat("ru-RU")
-            .format(new Date(new Date().getTime() - 158112e5))
-            .split(".")}
-        />
-        <ChartButton
-          key="1year"
-          text="1 Year"
-          gridStyle="button_6"
-          period={new Intl.DateTimeFormat("ru-RU")
-            .format(new Date(new Date().getTime() - 31536e6))
-            .split(".")}
-        />
-        <ChartButton
-          key="3years"
-          text="3 Years"
-          gridStyle="button_7"
-          period={new Intl.DateTimeFormat("ru-RU")
-            .format(new Date(new Date().getTime() - 94608e6))
-            .split(".")}
-        />
-        <ChartButton
-          key="5years"
-          text="5 Years"
-          gridStyle="button_8"
-          period={new Intl.DateTimeFormat("ru-RU")
-            .format(new Date(new Date().getTime() - 15768e7))
-            .split(".")}
-        />
-
+        <ToggleButtonGroup
+          value={histDate}
+          exclusive
+          onChange={handleAlignment}
+          aria-label="period"
+          size="small"
+          orientation="vertical"
+          sx={{
+            ".Mui-selected": {
+              bgcolor: "white !important",
+            },
+            ".MuiButtonBase-root-MuiToggleButton-root:hover": {
+              bgcolor: "black",
+              opacity: "0.9 !important",
+            },
+            minWidth: "132px",
+            marginTop: "40px",
+          }}
+        >
+          <ChartButton
+            key="5days"
+            text="5 Days"
+            period={new Intl.DateTimeFormat("ru-RU")
+              .format(new Date(new Date().getTime() - 432e6))
+              .split(".")}
+          />
+          <ChartButton
+            key="10days"
+            text="10 Days"
+            period={new Intl.DateTimeFormat("ru-RU")
+              .format(new Date(new Date().getTime() - 864e6))
+              .split(".")}
+          />
+          <ChartButton
+            key="1month"
+            text="1 Month"
+            period={new Intl.DateTimeFormat("ru-RU")
+              .format(new Date(new Date().getTime() - 2592e6))
+              .split(".")}
+          />
+          <ChartButton
+            key="3months"
+            text="3 Months"
+            period={new Intl.DateTimeFormat("ru-RU")
+              .format(new Date(new Date().getTime() - 7776e6))
+              .split(".")}
+          />
+          <ChartButton
+            key="6months"
+            text="6 Months"
+            period={new Intl.DateTimeFormat("ru-RU")
+              .format(new Date(new Date().getTime() - 158112e5))
+              .split(".")}
+          />
+          <ChartButton
+            key="1year"
+            text="1 Year"
+            period={new Intl.DateTimeFormat("ru-RU")
+              .format(new Date(new Date().getTime() - 31536e6))
+              .split(".")}
+          />
+          <ChartButton
+            key="3years"
+            text="3 Years"
+            period={new Intl.DateTimeFormat("ru-RU")
+              .format(new Date(new Date().getTime() - 94608e6))
+              .split(".")}
+          />
+          <ChartButton
+            key="5years"
+            text="5 Years"
+            period={new Intl.DateTimeFormat("ru-RU")
+              .format(new Date(new Date().getTime() - 15768e7))
+              .split(".")}
+          />
+        </ToggleButtonGroup>
         <Chart />
       </Box>
     </Grid>
