@@ -30,6 +30,8 @@ function App() {
         )
           .then((resp) => resp.json())
           .then((data) => {
+            console.log("1", data);
+            console.log();
             dispatch({ type: "update-result", payload: data.rates[curTo] });
           });
       }
@@ -50,8 +52,8 @@ function App() {
         )
           .then((resp) => resp.json())
           .then((data) => {
-            // setHist(data.rates);
-            // setIsLoading(false);
+            console.log("2", data);
+
             dispatch({
               type: "update-hist-data",
               payload: data.rates,
@@ -59,11 +61,6 @@ function App() {
           });
       }
 
-      // if (curFrom !== curTo) {
-      //   fetchHistCurrency();
-      // } else {
-      //   setHist([{ "": { "": 0 } }]);
-      // }
       if (curFrom !== curTo && value > 0 && value !== 0) {
         fetchHistCurrency();
       }
@@ -99,7 +96,8 @@ function App() {
           "keyboard keyboard"`,
           gap: 1,
           gridArea: "converter",
-          bgcolor: "silver",
+          // bgcolor: "silver",
+          background: "linear-gradient(white, silver)",
           color: "background.paper",
           p: 2,
           borderRadius: "12px",
@@ -120,10 +118,11 @@ function App() {
       <Box
         sx={{
           gridArea: "chart",
-          bgcolor: "silver",
+          background:
+            "linear-gradient(to left, silver, silver 5%, white 76%, silver 88%)",
           color: "background.paper",
-          p: 2,
           borderRadius: "12px",
+          paddingLeft: 2,
           display: "grid",
           gridTemplateColumns: "auto 1fr",
           gridTemplateRows: "1fr",
@@ -146,7 +145,7 @@ function App() {
               opacity: "0.9 !important",
             },
             minWidth: "132px",
-            marginTop: "40px",
+            marginTop: "16px",
           }}
         >
           <ChartButton

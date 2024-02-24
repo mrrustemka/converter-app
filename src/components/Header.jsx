@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 function Header() {
   const { input, result, from, to } = useSelector((state) => state);
-  console.log(result / input);
   return (
     <Box
       sx={{
