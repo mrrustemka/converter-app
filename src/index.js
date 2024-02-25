@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
 import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
+import App from "./App";
+import "./index.css";
 
 function getDate() {
   let date = new Intl.DateTimeFormat("ru-RU")
-    .format(new Date(new Date().getTime() - 2592000000))
+    .format(new Date(new Date().getTime() - 15768e7))
     .split(".");
   date.push(date[1], date[0]);
   return date.slice(2).join("-");

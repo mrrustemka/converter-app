@@ -1,4 +1,8 @@
 import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Box from "@mui/material/Box";
+import Grid from "@mui/system/Unstable_Grid/Grid";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Chart from "./components/Chart";
 import ChartButton from "./components/ChartButton";
 import Currency from "./components/Currency";
@@ -6,10 +10,6 @@ import Header from "./components/Header";
 import Input from "./components/Enter";
 import Keyboard from "./components/Keyboard";
 import Output from "./components/Output";
-import { useSelector, useDispatch } from "react-redux";
-import Box from "@mui/material/Box";
-import Grid from "@mui/system/Unstable_Grid/Grid";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 function App() {
   const {
@@ -30,8 +30,6 @@ function App() {
         )
           .then((resp) => resp.json())
           .then((data) => {
-            console.log("1", data);
-            console.log();
             dispatch({ type: "update-result", payload: data.rates[curTo] });
           });
       }
@@ -52,12 +50,11 @@ function App() {
         )
           .then((resp) => resp.json())
           .then((data) => {
-            console.log("2", data);
-
             dispatch({
               type: "update-hist-data",
               payload: data.rates,
             });
+            console.log(data);
           });
       }
 
@@ -68,7 +65,7 @@ function App() {
     [curFrom, curTo, dispatch, histDate, value]
   );
 
-  const handleAlignment = (event, newAlignment) => {
+  const handleAlignment = (_event, newAlignment) => {
     dispatch({ type: "update-hist-date", payload: newAlignment });
   };
   return (
@@ -96,7 +93,6 @@ function App() {
           "keyboard keyboard"`,
           gap: 1,
           gridArea: "converter",
-          // bgcolor: "silver",
           background: "linear-gradient(white, silver)",
           color: "background.paper",
           p: 2,
@@ -134,7 +130,6 @@ function App() {
           exclusive
           onChange={handleAlignment}
           aria-label="period"
-          size="small"
           orientation="vertical"
           sx={{
             ".Mui-selected": {
