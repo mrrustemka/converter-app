@@ -54,7 +54,6 @@ function App() {
               type: "update-hist-data",
               payload: data.rates,
             });
-            console.log(data);
           });
       }
 
